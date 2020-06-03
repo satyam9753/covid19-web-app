@@ -2,6 +2,7 @@ API used: [COVID-19 tracker](https://covid19.mathdro.id/api)
 
 ## Instructions
  `create-react-app covid19-PWA`
+ 
  `npm start`
 
 Runs the app in the development mode.<br />
