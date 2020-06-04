@@ -4,8 +4,9 @@
 
 import React from 'react';
 import { Cards, Charts, ChooseCountry } from './components';
-import styles from './App.module.css'
-import { fetchData } from './API/index'
+import styles from './App.module.css';
+import { fetchData } from './API/index';
+import headerImg from './images/COVID19.png';
 
 class App extends React.Component {
     // constructor is being created in backend
@@ -13,11 +14,14 @@ class App extends React.Component {
         data : {},  
         country: '',
     }
-    
+
     handleCountryChange = async (country) => {
-        // fetch the data
-        // set the state
-        console.log(country);
+        // fetch the data -->DONE
+        // set the state -->DONE
+        // console.log(country);
+        const fetchedData = await fetchData(country);
+        // console.log(fetchedData);
+        this.setState( { data: fetchedData, country: country } );
     }
 
     async componentDidMount(){
@@ -26,12 +30,16 @@ class App extends React.Component {
         this.setState({ data: fetchedData }); //making the data available to different components
     }
 
-    render() { 
+    render() {
+        const { data, country } = this.state;
+        
         return ( 
             <div className={ styles.container }>
+                <img className={styles.image} src={headerImg} alt="COVID19-Destruction"/>
                 <Cards data={ this.state.data } />
                 <ChooseCountry handleCountryChange={this.handleCountryChange}/>
-                <Charts />
+                <Charts data={data} country={country}/>
+                
             </div>
          );
     }

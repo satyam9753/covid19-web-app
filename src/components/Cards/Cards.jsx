@@ -8,7 +8,7 @@ import cx from 'classnames' //for multi-styling
 // destructuring 'props' below since, only {data} is being passed in 'App.js'
 
 const Cards = ({data : { confirmed, recovered, deaths, lastUpdate }}) => {
-    console.log(confirmed);
+    // console.log(confirmed);
 
     if(!confirmed){
         return 'Loading';
