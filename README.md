@@ -1,6 +1,6 @@
 API used: [COVID-19 tracker](https://covid19.mathdro.id/api)
 
-## PWA to be done soon....
+## PWA feature to be added soon....
 
 ## Instructions
  `create-react-app covid19-PWA`
